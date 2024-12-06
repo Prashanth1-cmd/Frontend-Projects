@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Ordering System</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://example.com/pizza-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Header styling */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffc107;
+            padding: 1rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        /* Main content styling */
+        main {
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            margin: 2rem auto;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Menu item styling */
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button styling */
+        button {
+            background-color: #ffc107;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff9500;
+        }
+
+        /* Hide elements */
+        .hidden {
+            display: none;
+        }
+
+        /* Styling for total amount */
+        .total-amount {
+            color: #ffc107;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        🍕 Welcome to Pizza Palace 🍕
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <!-- Menu -->
+        <div id="menu">
+            <h2>Menu</h2>
+            <div class="menu-item">
+                <span>Pizza</span><span>$10 <button onclick="addItem('Pizza', 10)">Add</button></span>
+            </div>
+            <div class="menu-item">
+                <span>Burger</span><span>$7 <button onclick="addItem('Burger', 7)">Add</button></span>
+            </div>
+            <div class="menu-item">
+                <span>Pasta</span><span>$8 <button onclick="addItem('Pasta', 8)">Add</button></span>
+            </div>
+            <div class="menu-item">
+                <span>Salad</span><span>$5 <button onclick="addItem('Salad', 5)">Add</button></span>
+            </div>
+            <div class="menu-item">
+                <span>Drink</span><span>$2 <button onclick="addItem('Drink', 2)">Add</button></span>
+            </div>
+            <button onclick="completeOrder()">Complete Order</button>
+        </div>
+
+        <!-- Order summary section -->
+        <div id="order-summary" class="hidden">
+            <h2>Order Summary</h2>
+            <div id="order-list"></div>
+            <h3 id="total-amount" class="total-amount"></h3>
+            <button onclick="addAnotherOrder()">Add Another Order</button>
+            <button onclick="finishOrder()">Finish Order</button>
+        </div>
+    </main>
+
+    <!-- JavaScript functionality -->
+    <script>
+        let orders = [];
+        let currentOrder = [];
+
+        // Add item to current order
+        function addItem(item, price) {
+            currentOrder.push({ item, price });
+            alert(`${item} added to your order.`);
+        }
+
+        // Complete the order
+        function completeOrder() {
+            if (currentOrder.length === 0) {
+                alert("Your order is empty!");
+                return;
+            }
+            orders.push(currentOrder);
+            updateSummary();
+            document.getElementById("menu").classList.add("hidden");
+            document.getElementById("order-summary").classList.remove("hidden");
+        }
+
+        // Update the order summary
+        function updateSummary() {
+            const orderList = document.getElementById("order-list");
+            orderList.innerHTML = "";
+            let totalAmount = 0;
+
+            orders.forEach((order, index) => {
+                const orderDiv = document.createElement("div");
+                orderDiv.innerHTML = `<h3>Order ${index + 1}:</h3>`;
+                order.forEach(({ item, price }) => {
+                    orderDiv.innerHTML += `<p>${item} - $${price}</p>`;
+                    totalAmount += price;
+                });
+                orderList.appendChild(orderDiv);
+            });
+
+            document.getElementById("total-amount").innerText = `Total Amount: $${totalAmount}`;
+        }
+
+        // Add another order
+        function addAnotherOrder() {
+            currentOrder = [];
+            document.getElementById("menu").classList.remove("hidden");
+            document.getElementById("order-summary").classList.add("hidden");
+        }
+
+        // Finish the order session
+        function finishOrder() {
+            alert("Thank you for your visit!");
+            location.reload();
+        }
+    </script>
+</body>
+</html>
