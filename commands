@@ -1,0 +1,114 @@
+GIT-------------------------------------------------------------------------------
+git practice
+git config --global user.name “kumar”
+git config --global user.email  “kalva.kumar@gmail.com”
+Git init
+Git add .
+Git commit -m “comit name”
+Git branch -M main
+Git remote add origin url
+Git push -u origin main
+
+
+Git init --> it will create new local git repository
+Git clone --> used to copy a repository
+Git add --> add a files to staging area
+Git commit --> will create a snap shot of changes & save it to the git directory
+Git push --> push local changes to the origin
+Git fetch à get all the changes from the origin (No merge)
+Git pull à  get all the changes from origin and merge
+git checkout -- filename --> undo the inside the file content/discard changes done in a file in workspace
+git log --> check the commit logs
+git stash --> temporary storage area
+git branch --> list the branches
+git branch -b branchName --> create and enter new branch
+git branch -d branchName --> delete the branch name
+Git checkout branchname --> enter the new branch
+
+
+
+Class-2 Advanced level
+
+Git log --> logs history
+Git log -p --> show the edit commit
+Git log --oneline
+Git log --oneline --all --> show all commit ids
+Git fetch origin master --> just adding not applying
+Git pull origin master --> coming & applying
+Git merge branch name
+Su -kumar --> swich to kumar user 
+
+Git stash save file --> save the index storage
+Git stash list --> show the list
+Git stash pop --> role back
+Git stash apply --> not deleting stash memory
+Git stash drop --> delete the stash memory
+
+Cat > file name
+Cat >> file name
+
+Types of users
+Owner
+Group
+Others
+
+Types of permissions
+Reed - r --> 4
+Write - w --> 2
+Execute - X --> 1
+
+4+2+1 = 7 
+Chmod 777 f1 --> rwxrwxrwx --> given all permitions
+-rw-r--r-- 1 kalva 197609 1678 Apr  7 16:19 devops.pem --> 644
+Chmod 770 --> given the permissions to owner user not others
+0 --> means no permissions
+1 --> X
+2 -->  W
+3 --> W+X
+4 --> r
+5 --> r+x
+6 --> r+w
+7 --> r+w+x
+
+
+
+Linux----------------------------------------------------------------------------------
+1. *Linux Basic Commands:*
+
+	- ls:- List directory contents.
+	- cd:- Change the current directory.
+	- pwd:- Print working directory.
+	- mkdir:- Create a new directory.
+	- touch:- Create a new empty file.
+	- vi :- text editor
+	- cat :- to check file content
+	- rmdir:- Remove a directory.
+	- cp:- Copy files and directories.
+	- mv:- Move/rename files and directories.
+	- rm:- Remove files or directories.rm -r, rm -f, rm -rf file name
+	- Top :- display Linux tasks
+	- Ping :- verify the network connection
+	- cal :- display the monthly calendar
+	- Hello :- to display brief system info
+	- Help :- to display list of commands
+	- Clear :- to clear the terminal
+	- Whoami :- check the current user
+	- Exit :- to logout the session
+	- Ctrl+alt+t :- to open the terminal
+	- Ctrl+d :- to close the terminal
+	- Ctrl + insert :- copy
+	- Shift + insert :- past
+	- Ctrl + c :- exit
+	File system navigation commands
+	- Cd . :-changes to current directory
+	- Cd .. :- changes to parent directory
+	- Cd/cd~  :- changes to user home directory
+	- Cd - :- changes to previous working directory
+	- Chmod :- change the access control list
+	- Chown :- change file owner & group
+	- Sudo :- superuser do
+
+
+
+
+
